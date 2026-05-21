@@ -2,8 +2,6 @@ import Anthropic from '@anthropic-ai/sdk'
 import { SYSTEM_PROMPT } from '@/lib/systemPrompt'
 import type { FormSchema, Message } from '@/lib/types'
 
-export const runtime = 'edge'
-
 const anthropic = new Anthropic()
 
 // Each line in the response stream is one of these JSON shapes:

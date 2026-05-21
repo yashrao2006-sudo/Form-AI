@@ -117,6 +117,11 @@ export default function ChatPanel({
               ])
             } else if (event.type === 'schema') {
               onSchemaUpdate(event.schema)
+            } else if (event.type === 'error') {
+              onMessagesChange([
+                ...nextMessages,
+                { role: 'assistant', content: `Error: ${event.message}` },
+              ])
             }
           } catch {
             // ignore malformed lines
