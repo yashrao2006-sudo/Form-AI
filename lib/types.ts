@@ -17,6 +17,7 @@ export interface FormSchema {
   title: string
   inputs: InputField[]
   outputs: OutputField[]
+  leadCapture?: { enabled: boolean }
 }
 
 export interface Message {
