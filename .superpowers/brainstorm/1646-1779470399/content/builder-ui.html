@@ -1,0 +1,112 @@
+<h2>Lead capture controls in the builder — where should they live?</h2>
+<p class="subtitle">You're the form owner, you've just built a form. You want to enable lead capture before sharing.</p>
+
+<div class="split">
+
+  <!-- Option A: Separate panel below the form card -->
+  <div class="mockup">
+    <div class="mockup-header">A — Separate panel below form card</div>
+    <div class="mockup-body" style="background:#f5f5f7;padding:16px;display:flex;flex-direction:column;gap:10px;">
+      <!-- Form card (simplified) -->
+      <div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-size:12px;font-weight:700;color:#1a1a1a;margin-bottom:8px;font-family:Georgia,serif;">Profit Calculator</div>
+        <div style="background:#6366f1;border-radius:8px;padding:10px;margin-bottom:10px;">
+          <div style="font-size:7px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:4px;">Results</div>
+          <div style="font-size:11px;font-weight:700;color:#fff;">$40,000 · 33.3%</div>
+        </div>
+        <!-- Share row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;gap:4px;">
+            <span style="background:#6366f1;color:#fff;font-size:7px;font-weight:700;padding:2px 7px;border-radius:10px;">Link</span>
+            <span style="border:1px solid #e5e5e5;color:#999;font-size:7px;font-weight:700;padding:2px 7px;border-radius:10px;">Embed</span>
+          </div>
+          <span style="font-size:7px;color:#aaa;">Copy link</span>
+        </div>
+      </div>
+
+      <!-- Lead Capture Panel — separate card below -->
+      <div style="background:#fff;border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#1a1a1a;">Lead Capture</div>
+            <div style="font-size:8px;color:#888;margin-top:1px;">Collect emails before showing results</div>
+          </div>
+          <!-- Toggle switch ON -->
+          <div style="width:32px;height:18px;background:#6366f1;border-radius:9px;position:relative;cursor:pointer;">
+            <div style="width:14px;height:14px;background:#fff;border-radius:50%;position:absolute;top:2px;right:2px;"></div>
+          </div>
+        </div>
+        <!-- Leads list -->
+        <div style="border-top:1px solid #f0f0f0;padding-top:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+            <span style="font-size:8px;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:0.08em;">3 leads</span>
+            <span style="font-size:8px;color:#6366f1;font-weight:600;cursor:pointer;">↓ CSV</span>
+          </div>
+          <div style="font-size:8px;color:#555;margin-bottom:3px;">john@acmecorp.com</div>
+          <div style="font-size:8px;color:#555;margin-bottom:3px;">sarah@startup.io</div>
+          <div style="font-size:8px;color:#999;">mike@example.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Option B: Lead capture inside form card footer -->
+  <div class="mockup">
+    <div class="mockup-header">B — Toggle inside form card footer</div>
+    <div class="mockup-body" style="background:#f5f5f7;padding:16px;">
+      <!-- Form card with lead capture integrated into footer -->
+      <div style="background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+        <div style="font-size:12px;font-weight:700;color:#1a1a1a;margin-bottom:8px;font-family:Georgia,serif;">Profit Calculator</div>
+        <div style="background:#6366f1;border-radius:8px;padding:10px;margin-bottom:10px;">
+          <div style="font-size:7px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:4px;">Results</div>
+          <div style="font-size:11px;font-weight:700;color:#fff;">$40,000 · 33.3%</div>
+        </div>
+        <!-- Share row with lead capture toggle added -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div style="display:flex;gap:4px;">
+            <span style="background:#6366f1;color:#fff;font-size:7px;font-weight:700;padding:2px 7px;border-radius:10px;">Link</span>
+            <span style="border:1px solid #e5e5e5;color:#999;font-size:7px;font-weight:700;padding:2px 7px;border-radius:10px;">Embed</span>
+          </div>
+          <span style="font-size:7px;color:#aaa;">Copy link</span>
+        </div>
+        <!-- Lead capture row in card footer -->
+        <div style="border-top:1px solid #f0f0f0;padding-top:8px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <!-- Toggle ON -->
+            <div style="width:26px;height:14px;background:#6366f1;border-radius:7px;position:relative;cursor:pointer;">
+              <div style="width:10px;height:10px;background:#fff;border-radius:50%;position:absolute;top:2px;right:2px;"></div>
+            </div>
+            <span style="font-size:8px;font-weight:600;color:#555;">Lead capture on</span>
+          </div>
+          <span style="font-size:8px;color:#6366f1;font-weight:600;cursor:pointer;">3 leads ↓</span>
+        </div>
+        <!-- Leads expand (collapsed state shown below) -->
+        <div style="margin-top:6px;background:#fafafa;border-radius:6px;padding:8px;">
+          <div style="font-size:8px;color:#555;margin-bottom:2px;">john@acmecorp.com</div>
+          <div style="font-size:8px;color:#555;margin-bottom:2px;">sarah@startup.io</div>
+          <div style="font-size:8px;color:#aaa;font-style:italic;">+1 more · Download CSV →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="options" style="margin-top:20px;">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Separate panel below</h3>
+      <p>Clean separation. Form card stays unchanged. Lead controls live in their own card — easier to extend later.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Integrated in form card</h3>
+      <p>Everything in one card. More compact. Works better if you never want the leads panel to be its own thing.</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:12px;">Which layout feels right? Click or tell me in the terminal.</p>
