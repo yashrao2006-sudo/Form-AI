@@ -5,6 +5,7 @@ vi.mock('@/lib/supabase', () => ({
 }))
 
 import { POST } from '@/app/api/leads/route'
+import { GET } from '@/app/api/leads/[formId]/route'
 import { supabaseAdmin } from '@/lib/supabase'
 
 function mockFromSequence(...calls: { data: unknown; error: unknown }[]) {
@@ -82,6 +83,40 @@ describe('POST /api/leads', () => {
       headers: { 'Content-Type': 'application/json' },
     })
     const res = await POST(req)
+    expect(res.status).toBe(500)
+  })
+})
+
+describe('GET /api/leads/[formId]', () => {
+  it('returns 200 with leads array', async () => {
+    mockFromSequence({
+      data: [
+        { email: 'a@b.com', captured_at: '2026-05-22T00:00:00Z' },
+        { email: 'c@d.com', captured_at: '2026-05-21T00:00:00Z' },
+      ],
+      error: null,
+    })
+    const req = new Request('http://localhost/api/leads/form-1')
+    const res = await GET(req, { params: Promise.resolve({ formId: 'form-1' }) })
+    expect(res.status).toBe(200)
+    const body = await res.json()
+    expect(body.leads).toHaveLength(2)
+    expect(body.leads[0].email).toBe('a@b.com')
+  })
+
+  it('returns empty array when no leads exist', async () => {
+    mockFromSequence({ data: [], error: null })
+    const req = new Request('http://localhost/api/leads/form-empty')
+    const res = await GET(req, { params: Promise.resolve({ formId: 'form-empty' }) })
+    expect(res.status).toBe(200)
+    const body = await res.json()
+    expect(body.leads).toEqual([])
+  })
+
+  it('returns 500 when Supabase errors', async () => {
+    mockFromSequence({ data: null, error: { message: 'db error' } })
+    const req = new Request('http://localhost/api/leads/form-1')
+    const res = await GET(req, { params: Promise.resolve({ formId: 'form-1' }) })
     expect(res.status).toBe(500)
   })
 })
